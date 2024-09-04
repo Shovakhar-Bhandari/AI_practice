@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 
-! pip install scikit-learn
+
 
 # Load and prepare
 # iris = load_iris()
