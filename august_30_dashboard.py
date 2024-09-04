@@ -12,8 +12,8 @@ df=pd.read_csv('iris.csv')
 
 
 # df = pd.DataFrame(data = iris.data, columns= iris.feature_names)
-# df["Species"] = iris.target
-# df['Species'] = df['Species'].map({0: 'Setosa', 1: 'Versicolor', 2: 'Virginica'})
+# df["species"] = iris.target
+# df['species'] = df['species'].map({0: 'Setosa', 1: 'Versicolor', 2: 'Virginica'})
 
 # Sidebar from user input
 st.sidebar.header("Input Features")
@@ -37,7 +37,7 @@ input_df = user_input_features()
 st.write("# Iris Flower Prediction")
 
 # Combine the input features with the entire Dataset
-iris_raw = df.drop(columns=['Species'])
+iris_raw = df.drop(columns=['species'])
 iris_raw = pd.concat([input_df, iris_raw], axis=0)
 
 # Standadize the input features
@@ -47,7 +47,7 @@ input_scaled = iris_raw_scaled[:1] #select only the user input
 
 # Train the model
 model = RandomForestClassifier(n_estimators=100, random_state=42)
-model.fit(iris_raw_scaled[1:], df['Species'])
+model.fit(iris_raw_scaled[1:], df['species'])
 
 # Predict 
 prediction = model.predict(input_scaled)
